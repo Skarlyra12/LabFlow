@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --background: oklch(0.975 0.004 250);
+  --surface: oklch(1 0 0);
+  --ink: oklch(0.22 0.035 255);
+  --muted: oklch(0.48 0.025 255);
+  --primary: oklch(0.31 0.09 255);
+  --primary-hover: oklch(0.25 0.08 255);
+  --sidebar: oklch(0.24 0.065 255);
+  --primary-soft: oklch(0.95 0.025 250);
+  --sidebar-muted: oklch(0.78 0.025 255);
+  --border: oklch(0.89 0.012 250);
+  --success-bg: oklch(0.94 0.055 150);
+  --success-text: oklch(0.34 0.1 150);
+  --warning-bg: oklch(0.95 0.07 85);
+  --warning-text: oklch(0.38 0.09 65);
+  --danger-bg: oklch(0.95 0.035 25);
+  --danger-text: oklch(0.4 0.14 25);
+}
+
+@theme inline {
+  --color-page: var(--background);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-sidebar: var(--sidebar);
+  --color-primary-soft: var(--primary-soft);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-line: var(--border);
+  --color-success-bg: var(--success-bg);
+  --color-success-text: var(--success-text);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-text: var(--warning-text);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-text: var(--danger-text);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    background: var(--background);
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--ink);
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.5;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 3px solid oklch(0.74 0.12 245 / 0.55);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
