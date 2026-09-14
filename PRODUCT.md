@@ -6,11 +6,11 @@ product
 
 ## Users
 
-Alunos, professores e responsáveis por laboratórios universitários. Eles precisam consultar espaços, capacidade e disponibilidade com rapidez durante a rotina acadêmica.
+Administradores, estudantes e professores. Administradores cadastram usuários e salas e visualizam as reservas; estudantes e professores consultam salas, realizam reservas e visualizam suas próprias reservas.
 
 ## Product Purpose
 
-O LabFlow centraliza a consulta e o cadastro de laboratórios. Nesta etapa, o objetivo é demonstrar com clareza o fluxo entre interface, API e dados temporários, mantendo o projeto simples de apresentar e alterar.
+O LabFlow centraliza autenticação, cadastro de estudantes, professores e salas, além da reserva de salas universitárias. A Sprint 1 deve demonstrar com clareza o fluxo entre interface, API e MySQL, mantendo o projeto simples de apresentar e alterar.
 
 ## Brand Personality
 
@@ -23,7 +23,7 @@ Não deve parecer uma landing page de SaaS, um dashboard genérico cheio de grá
 ## Design Principles
 
 - Priorizar a tarefa e a leitura dos dados.
-- Manter o mesmo vocabulário do formulário à API.
+- Manter o mesmo vocabulário do formulário ao SQL.
 - Usar padrões de interface familiares e fáceis de explicar.
 - Mostrar estados de carregamento, erro e vazio com instruções diretas.
 - Preservar uma identidade universitária sóbria e contemporânea.

@@ -13,8 +13,6 @@
   --border: oklch(0.89 0.012 250);
   --success-bg: oklch(0.94 0.055 150);
   --success-text: oklch(0.34 0.1 150);
-  --warning-bg: oklch(0.95 0.07 85);
-  --warning-text: oklch(0.38 0.09 65);
   --danger-bg: oklch(0.95 0.035 25);
   --danger-text: oklch(0.4 0.14 25);
 }
@@ -32,8 +30,6 @@
   --color-line: var(--border);
   --color-success-bg: var(--success-bg);
   --color-success-text: var(--success-text);
-  --color-warning-bg: var(--warning-bg);
-  --color-warning-text: var(--warning-text);
   --color-danger-bg: var(--danger-bg);
   --color-danger-text: var(--danger-text);
 }

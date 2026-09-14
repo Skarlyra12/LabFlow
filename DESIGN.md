@@ -2,7 +2,7 @@
 
 ## Theme
 
-Interface clara para uso cotidiano em ambientes universitários. A composição é sóbria, com navegação azul-escura e áreas de conteúdo brancas. A identificação `LAB 01` nos cards remete à sinalização de blocos e salas sem criar uma nova regra de negócio.
+Interface clara para uso cotidiano em ambientes universitários. A composição é sóbria, com navegação azul-escura e áreas de conteúdo brancas. A identificação `SALA 01` nos cards remete à sinalização dos espaços sem criar uma nova regra de negócio.
 
 ## Colors
 
@@ -21,7 +21,7 @@ Uma única família sans-serif de sistema em toda a interface. Títulos usam pes
 
 ## Layout
 
-Sidebar fixa de 272px no desktop, substituída por navegação horizontal no mobile. Conteúdo com largura máxima aproximada de 1180px e espaçamento vertical consistente. Cards de laboratório se adaptam automaticamente ao espaço disponível.
+Sidebar fixa de 272px no desktop, com links adequados ao perfil autenticado e navegação horizontal no mobile. Conteúdo com largura máxima aproximada de 1180px e espaçamento vertical consistente. Cards de sala se adaptam automaticamente ao espaço disponível.
 
 ## Components
 

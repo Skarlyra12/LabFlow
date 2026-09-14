@@ -1,17 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { CalendarDays, FlaskConical, LayoutDashboard } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import {
+  BookOpenCheck,
+  CalendarDays,
+  DoorOpen,
+  GraduationCap,
+  LayoutDashboard,
+  LogOut,
+  UsersRound,
+} from "lucide-react";
+import type { Sessao } from "@/lib/auth";
 
-const links = [
+const linksAdmin = [
   { href: "/", label: "Dashboard", Icone: LayoutDashboard },
-  { href: "/laboratorios", label: "Laboratórios", Icone: FlaskConical },
+  { href: "/admin/estudantes", label: "Estudantes", Icone: GraduationCap },
+  { href: "/admin/professores", label: "Professores", Icone: UsersRound },
+  { href: "/salas", label: "Salas", Icone: DoorOpen },
   { href: "/reservas", label: "Reservas", Icone: CalendarDays },
 ];
 
-export default function Sidebar() {
+const linksUsuario = [
+  { href: "/", label: "Dashboard", Icone: LayoutDashboard },
+  { href: "/salas", label: "Salas", Icone: DoorOpen },
+  { href: "/reservas", label: "Minhas Reservas", Icone: BookOpenCheck },
+];
+
+export default function Sidebar({ sessao }: { sessao: Sessao }) {
   const pathname = usePathname();
+  const router = useRouter();
+  const links = sessao.perfil === "ADMIN" ? linksAdmin : linksUsuario;
+
+  async function sair() {
+    await fetch("/api/logout", { method: "POST" });
+    router.replace("/login");
+    router.refresh();
+  }
 
   return (
     <>
@@ -46,13 +71,23 @@ export default function Sidebar() {
         </div>
 
         <div className="mx-2 border-t border-white/15 pt-5">
-          <strong className="block text-sm font-semibold">Projeto Acadêmico</strong>
-          <span className="mt-1 block text-sm leading-5 text-sidebar-muted">Engenharia de Software</span>
+          <strong className="block break-words text-sm font-semibold">{sessao.nome}</strong>
+          <span className="mt-1 block text-sm text-sidebar-muted">{sessao.perfil}</span>
+          <button className="mt-4 flex min-h-11 w-full items-center gap-2 rounded-lg px-3 text-sm font-semibold text-sidebar-muted hover:bg-white/8 hover:text-white" type="button" onClick={sair}>
+            <LogOut className="size-4" strokeWidth={1.8} aria-hidden="true" />
+            Sair
+          </button>
         </div>
       </aside>
 
       <div className="sticky top-0 z-20 overflow-x-auto bg-sidebar px-5 pt-3.5 text-white md:hidden">
-        <Link href="/" className="inline-flex min-h-11 items-center text-lg font-bold">LabFlow</Link>
+        <div className="flex min-w-max items-center justify-between gap-8">
+          <Link href="/" className="inline-flex min-h-11 items-center text-lg font-bold">LabFlow</Link>
+          <button className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-sidebar-muted" type="button" onClick={sair}>
+            <LogOut className="size-4" strokeWidth={1.8} aria-hidden="true" />
+            Sair
+          </button>
+        </div>
         <nav className="flex min-w-max gap-5" aria-label="Navegação principal">
           {links.map((link) => {
             const ativo = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
