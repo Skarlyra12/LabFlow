@@ -1,4 +1,5 @@
-import { MapPin, UsersRound } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, MapPin, UsersRound } from "lucide-react";
 import type { Sala } from "@/types/sala";
 
 const classesStatus = {
@@ -8,7 +9,11 @@ const classesStatus = {
 
 export default function SalaCard({ sala }: { sala: Sala }) {
   return (
-    <article className="flex min-h-64 flex-col rounded-xl border border-line bg-surface p-6 shadow-[0_1px_2px_oklch(0.22_0.035_255/0.04)] hover:border-[oklch(0.78_0.025_250)] hover:shadow-[0_4px_8px_oklch(0.22_0.035_255/0.06)]">
+    <Link
+      href={`/salas/${sala.id_sala}`}
+      className="group flex min-h-64 flex-col rounded-xl border border-line bg-surface p-6 shadow-[0_1px_2px_oklch(0.22_0.035_255/0.04)] hover:border-[oklch(0.72_0.04_250)] hover:shadow-[0_6px_14px_oklch(0.22_0.035_255/0.07)]"
+      aria-label={`Ver detalhes de ${sala.nome}`}
+    >
       <div className="flex items-center justify-between gap-3">
         <span className="text-sm font-bold tracking-[0.06em] text-muted">
           SALA {String(sala.id_sala).padStart(2, "0")}
@@ -35,6 +40,10 @@ export default function SalaCard({ sala }: { sala: Sala }) {
         </span>
         <strong>{sala.capacidade} lugares</strong>
       </div>
-    </article>
+      <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+        Ver sala
+        <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" strokeWidth={1.8} aria-hidden="true" />
+      </span>
+    </Link>
   );
 }

@@ -1,6 +1,6 @@
 # LabFlow
 
-Sistema acadêmico para gestão de salas e reservas universitárias.
+Sistema acadêmico para gestão de salas e programação de aulas universitárias.
 
 ## Tecnologias
 
@@ -11,29 +11,26 @@ Sistema acadêmico para gestão de salas e reservas universitárias.
 - mysql2
 - bcryptjs
 
-## Requisitos
+## Sprint 2
 
-- Node.js 20 ou superior
-- MySQL Server
+A Sprint 2 evolui o LabFlow para:
+- filtro de salas por nome;
+- consulta detalhada de sala e grade de horários;
+- programação de aulas pelo professor responsável;
+- consulta de aulas por perfil;
+- alteração do status da sala;
+- vínculo de professor responsável;
+- bloqueio de conflito de horário e de salas em manutenção.
 
-## Configurar o MySQL
+## Banco de dados
 
-1. Abra [database/labflow.sql](database/labflow.sql) no MySQL Workbench.
-2. Execute o arquivo para criar o banco `labflow` e suas tabelas.
-3. Copie `.env.example` para `.env.local` e informe os dados da sua conexão.
-4. Troque `AUTH_SECRET` por uma chave aleatória com pelo menos 32 caracteres. Por exemplo: `openssl rand -hex 32`.
+Para instalação limpa, execute `database/labflow.sql`.
 
-## Criar o administrador
+Para atualizar um banco existente da Sprint 1, faça backup e execute `database/migracao_sprint1_para_sprint2.sql`.
 
-Gere o hash da senha localmente:
+O modelo consolidado da Sprint 2 utiliza as tabelas `usuario`, `estudante`, `professor`, `sala` e `aula`.
 
-```bash
-npm run gerar-hash -- "sua_senha"
-```
-
-No final de `database/labflow.sql`, copie o `INSERT` de exemplo, informe o email desejado e substitua `HASH_BCRYPT_GERADO` pelo resultado do comando. Para testes locais, pode-se usar o email `admin@labflow.local` com uma senha definida somente no seu ambiente.
-
-## Iniciar a aplicação
+## Iniciar
 
 ```bash
 npm install
